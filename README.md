@@ -1,27 +1,102 @@
-# FormioToolkit
+# Form.io Toolkit for Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+A comprehensive toolkit for Form.io in Angular applications that provides enhanced configuration capabilities for custom forms and components.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Component Registry Service for managing custom Form.io components
+- Easy integration with existing Form.io Angular projects
+- TypeScript support with proper type definitions
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install formio-toolkit
+```
 
-## Build
+## Dependencies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This library requires the following peer dependencies:
+- @angular/core
+- @angular/common
+- @formio/angular
+- formiojs
 
-## Running unit tests
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 1. Import the FormioToolkitModule
 
-## Running end-to-end tests
+```typescript
+import { FormioToolkitModule } from 'formio-toolkit';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@NgModule({
+  imports: [
+    FormioToolkitModule
+  ]
+})
+export class AppModule { }
+```
 
-## Further help
+### 2. Register Custom Components
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```typescript
+import { ComponentRegistryService, FormioCustomComponentInfo } from 'formio-toolkit';
+
+@Component({
+  selector: 'app-root',
+  template: '<formio [form]="form"></formio>'
+})
+export class AppComponent {
+  constructor(private componentRegistry: ComponentRegistryService) {
+    // Register a custom component
+    const customComponent: FormioCustomComponentInfo = {
+      type: 'myCustomComponent',
+      title: 'My Custom Component',
+      group: 'basic',
+      icon: 'fa fa-star',
+      selector: 'my-custom-component',
+      template: '<div>Custom Component Template</div>',
+      weight: 100,
+      input: true
+    };
+
+    this.componentRegistry.registerComponent('myCustomComponent', customComponent);
+  }
+}
+```
+
+### 3. Managing Components
+
+```typescript
+// Get a registered component
+const component = componentRegistry.getComponent('myCustomComponent');
+
+// Remove a component
+componentRegistry.removeComponent('myCustomComponent');
+
+// Get all registered components
+const allComponents = componentRegistry.getAllComponents();
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT License
+
+## Development
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
+### Development server
+
+1. Clone the repository
+2. Run `npm install`
+3. Run `ng build formio-toolkit` to build the library
+4. Run `ng serve` for a dev server
+
+### Build
+
+Run `ng build formio-toolkit` to build the project. The build artifacts will be stored in the `dist/` directory.
