@@ -1,24 +1,150 @@
-# FormioToolkit
+# @kivesh-cloud/formio-toolkit
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+A comprehensive Angular toolkit for Form.io that provides enhanced form components, utilities, and customization options. This toolkit extends Form.io's capabilities with additional features and improved component handling.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name --project formio-toolkit` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project formio-toolkit`.
-> Note: Don't forget to add `--project formio-toolkit` or else it will be added to the default project in your `angular.json` file. 
+- **Rich Component Library**
+  - Text Fields & Areas
+  - Select Boxes & Dropdowns
+  - Date/Time Pickers
+  - File Upload Components
+  - Grid & Table Components
+  - Payment Integration Components
+  - Resource Components
+  - Survey Components
+  - And many more!
 
-## Build
+- **Component Registry Service**
+  - Easy registration of custom components
+  - Override default Form.io components
+  - Dynamic component loading
 
-Run `ng build formio-toolkit` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Component Customization**
+  - Customize component appearance
+  - Add custom validation rules
+  - Extend component functionality
 
-## Publishing
+- **Wizard Support**
+  - Multi-step form wizards
+  - Progress tracking
+  - Navigation controls
 
-After building your library with `ng build formio-toolkit`, go to the dist folder `cd dist/formio-toolkit` and run `npm publish`.
+## Installation
 
-## Running unit tests
+```bash
+# Using npm
+npm install @kivesh-cloud/formio-toolkit
 
-Run `ng test formio-toolkit` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Using pnpm
+pnpm add @kivesh-cloud/formio-toolkit
+```
 
-## Further help
+## Quick Start
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Import the module in your `app.module.ts`:
+
+```typescript
+import { FormioToolkitModule } from '@kivesh-cloud/formio-toolkit';
+
+@NgModule({
+  imports: [
+    FormioToolkitModule,
+    // ... other imports
+  ],
+  // ...
+})
+export class AppModule { }
+```
+
+2. Use the components in your templates:
+
+```typescript
+import { Component } from '@angular/core';
+import { ComponentRegistryService } from '@kivesh-cloud/formio-toolkit';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <formio-form [form]="formDefinition"></formio-form>
+  `
+})
+export class AppComponent {
+  constructor(private componentRegistry: ComponentRegistryService) {
+    // Register custom components if needed
+    this.componentRegistry.registerAllFormioComponents();
+  }
+}
+```
+
+## Available Components
+
+### Basic Components
+- TextField
+- TextArea
+- SelectBox
+- Checkbox
+- Radio
+- Button
+- DateTime
+- FileUpload
+
+### Advanced Components
+- Panel
+- Container
+- Table/Grid
+- HTML Components
+- Custom Components
+- Payment Integration
+- Resource Components
+- DataGrid
+- Survey
+
+## Customization
+
+You can customize components using the ComponentCustomizationService:
+
+```typescript
+import { ComponentCustomizationService } from '@kivesh-cloud/formio-toolkit';
+
+@Component({
+  // ...
+})
+export class YourComponent {
+  constructor(private customization: ComponentCustomizationService) {
+    // Customize a component
+    this.customization.customize('textfield', {
+      template: '<custom-template></custom-template>',
+      // ... other customization options
+    });
+  }
+}
+```
+
+## Requirements
+
+- Angular 16.2.0 or higher
+- @angular/common and @angular/core as peer dependencies
+- Compatible with Form.io's latest version
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+## Development
+
+```bash
+# Build the library
+ng build @kivesh-cloud/formio-toolkit
+
+# Run tests
+ng test @kivesh-cloud/formio-toolkit
+```
+
+## License
+
+MIT 
+
+## Support
+
+For issues and feature requests, please use the [GitHub issue tracker](https://github.com/kivesh-cloud/formio-toolkit/issues).

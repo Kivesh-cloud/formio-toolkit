@@ -6,7 +6,15 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "paths": {
+      "types": ["./node_modules/@formio/core/lib/types"],
+      "utils": ["./node_modules/@formio/core/lib/utils"],
+      "error": ["./node_modules/@formio/core/lib/error"],
+      "sdk": ["./node_modules/@formio/js/lib/cjs"]
+    }
   },
   "exclude": [
     "**/*.spec.ts"

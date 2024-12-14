@@ -143,7 +143,6 @@ export const paymentComponent = {
   validateOn: 'submit',
   errorMessage: '',
   customErrorMessage: '',
-  validateOn: 'submit',
   saveOnServer: true,
   redactCardData: true,
   enableCardSaving: false,

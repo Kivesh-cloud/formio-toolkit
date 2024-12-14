@@ -1,6 +1,19 @@
 {
-  "name": "formio-toolkit",
+  "name": "@kivesh-cloud/formio-toolkit",
   "version": "0.0.1",
+  "description": "A toolkit for Form.io components and utilities",
+  "author": "Kivesh Virasamy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kivesh-cloud/formio-toolkit"
+  },
+  "keywords": [
+    "formio",
+    "angular",
+    "forms",
+    "components"
+  ],
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"
@@ -8,5 +21,8 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }
