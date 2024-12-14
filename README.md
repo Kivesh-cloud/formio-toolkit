@@ -33,12 +33,19 @@ A comprehensive Angular toolkit for Form.io that provides enhanced form componen
 ## Installation
 
 ```bash
-# Using npm
-npm install @kivesh-virasamy/formio-toolkit
+# Using npm (recommended)
+npm install @kivesh-virasamy/formio-toolkit @formio/js @formio/deprecated-types --legacy-peer-deps
 
 # Using pnpm
-pnpm add @kivesh-virasamy/formio-toolkit
+pnpm add @kivesh-virasamy/formio-toolkit @formio/js @formio/deprecated-types --legacy-peer-deps
 ```
+
+Note: The `--legacy-peer-deps` flag is required due to some dependency version conflicts in Form.io packages.
+
+### Required Dependencies
+- Angular 16.2.0 or higher
+- @formio/js ^5.0.0-rc.31
+- @formio/deprecated-types ^2.4.0
 
 ## Quick Start
 
@@ -125,6 +132,8 @@ export class YourComponent {
 
 - Angular 16.2.0 or higher
 - @angular/common and @angular/core as peer dependencies
+- @formio/js ^5.0.0-rc.31
+- @formio/deprecated-types ^2.4.0
 - Compatible with Form.io's latest version
 
 ## Contributing
