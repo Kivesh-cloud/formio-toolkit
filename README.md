@@ -1,202 +1,150 @@
-# Form.io Toolkit for Angular
+# @kivesh-virasamy/formio-toolkit
 
-A comprehensive toolkit for Form.io in Angular applications that provides enhanced configuration capabilities for custom forms and components.
+A comprehensive Angular toolkit for Form.io that provides enhanced form components, utilities, and customization options. This toolkit extends Form.io's capabilities with additional features and improved component handling.
 
 ## Features
 
-- Component Registry Service for managing custom Form.io components
-- Component Customization Service for extending Form.io components with advanced features
-- Built-in customizable components with Form.io builder integration
-- Easy integration with existing Form.io Angular projects
-- TypeScript support with proper type definitions
+- **Rich Component Library**
+  - Text Fields & Areas
+  - Select Boxes & Dropdowns
+  - Date/Time Pickers
+  - File Upload Components
+  - Grid & Table Components
+  - Payment Integration Components
+  - Resource Components
+  - Survey Components
+  - And many more!
+
+- **Component Registry Service**
+  - Easy registration of custom components
+  - Override default Form.io components
+  - Dynamic component loading
+
+- **Component Customization**
+  - Customize component appearance
+  - Add custom validation rules
+  - Extend component functionality
+
+- **Wizard Support**
+  - Multi-step form wizards
+  - Progress tracking
+  - Navigation controls
 
 ## Installation
 
 ```bash
-npm install formio-toolkit
+# Using npm
+npm install @kivesh-virasamy/formio-toolkit
+
+# Using pnpm
+pnpm add @kivesh-virasamy/formio-toolkit
 ```
 
-## Dependencies
+## Quick Start
 
-This library requires the following peer dependencies:
-- @angular/core
-- @angular/common
-- @formio/angular
-- formiojs
-
-## Usage
-
-### 1. Import the FormioToolkitModule
+1. Import the module in your `app.module.ts`:
 
 ```typescript
-import { FormioToolkitModule } from 'formio-toolkit';
+import { FormioToolkitModule } from '@kivesh-virasamy/formio-toolkit';
 
 @NgModule({
   imports: [
-    FormioToolkitModule
-  ]
+    FormioToolkitModule,
+    // ... other imports
+  ],
+  // ...
 })
 export class AppModule { }
 ```
 
-### 2. Basic Component Registration
+2. Use the components in your templates:
 
 ```typescript
-import { ComponentRegistryService, FormioCustomComponentInfo } from 'formio-toolkit';
+import { Component } from '@angular/core';
+import { ComponentRegistryService } from '@kivesh-virasamy/formio-toolkit';
 
 @Component({
   selector: 'app-root',
-  template: '<formio [form]="form"></formio>'
+  template: `
+    <formio-form [form]="formDefinition"></formio-form>
+  `
 })
 export class AppComponent {
   constructor(private componentRegistry: ComponentRegistryService) {
-    // Register a custom component
-    const customComponent: FormioCustomComponentInfo = {
-      type: 'myCustomComponent',
-      title: 'My Custom Component',
-      group: 'basic',
-      icon: 'fa fa-star',
-      selector: 'my-custom-component',
-      template: '<div>Custom Component Template</div>'
-    };
-
-    this.componentRegistry.registerComponent('myCustomComponent', customComponent);
+    // Register custom components if needed
+    this.componentRegistry.registerAllFormioComponents();
   }
 }
 ```
 
-### 3. Advanced Component Customization
+## Available Components
+
+### Basic Components
+- TextField
+- TextArea
+- SelectBox
+- Checkbox
+- Radio
+- Button
+- DateTime
+- FileUpload
+
+### Advanced Components
+- Panel
+- Container
+- Table/Grid
+- HTML Components
+- Custom Components
+- Payment Integration
+- Resource Components
+- DataGrid
+- Survey
+
+## Customization
+
+You can customize components using the ComponentCustomizationService:
 
 ```typescript
-import { ComponentCustomizationService } from 'formio-toolkit';
+import { ComponentCustomizationService } from '@kivesh-virasamy/formio-toolkit';
 
 @Component({
-  selector: 'app-root',
-  template: '<formio [form]="form"></formio>'
+  // ...
 })
-export class AppComponent {
+export class YourComponent {
   constructor(private customization: ComponentCustomizationService) {
-    // Add autocomplete to text fields
-    this.customization.customizeTextFieldWithAutocomplete({
-      suggestions: ['option1', 'option2']
-    });
-
-    // Add dynamic loading to select components
-    this.customization.customizeSelectWithDynamicOptions({
-      dataUrl: 'https://api.example.com/options',
-      refreshInterval: 60000
-    });
-
-    // Add cloud storage to file upload
-    this.customization.customizeFileUploadWithCloudStorage({
-      uploadHandler: async (file, config) => {
-        // Your upload logic here
-      },
-      urlHandler: async (key, config) => {
-        // Your URL signing logic here
-      }
+    // Customize a component
+    this.customization.customize('textfield', {
+      template: '<custom-template></custom-template>',
+      // ... other customization options
     });
   }
 }
 ```
 
-### 4. Form.io Builder Integration
+## Requirements
 
-The customized components will appear in the Form.io builder interface with configurable options:
-
-#### Autocomplete Text Field
-- Enable/disable autocomplete
-- Configure suggestion list
-- Set validation rules
-
-#### Dynamic Select
-- Configure data URL
-- Set refresh interval
-- Define default value
-
-#### Cloud File Upload
-- Choose storage provider (AWS, Azure, GCP)
-- Set bucket and path
-- Configure accepted file types
-
-### 5. Managing Components
-
-```typescript
-// Get a registered component
-const component = componentRegistry.getComponent('myCustomComponent');
-
-// Remove a component
-componentRegistry.removeComponent('myCustomComponent');
-
-// Get all registered components
-const allComponents = componentRegistry.getAllComponents();
-
-// Extend an existing component
-componentRegistry.extendComponent('textfield', {
-  builder: {
-    title: 'Enhanced Text Field',
-    group: 'advanced',
-    settings: {
-      customOption: {
-        type: 'checkbox',
-        label: 'Custom Option',
-        weight: 10
-      }
-    }
-  },
-  methods: {
-    customMethod: () => {
-      // Custom functionality
-    }
-  }
-});
-```
-
-## Available Customizations
-
-### Text Field
-- Autocomplete functionality
-- Custom validation
-- Input transformers
-- Event handlers
-
-### Select
-- Dynamic options loading
-- Auto-refresh capability
-- Custom option formatting
-- Search integration
-
-### File Upload
-- Cloud storage integration
-- Progress tracking
-- File validation
-- Preview capabilities
-
-### Data Grid
-- Advanced filtering
-- Custom sorting
-- Row actions
-- Batch operations
+- Angular 16.2.0 or higher
+- @angular/common and @angular/core as peer dependencies
+- Compatible with Form.io's latest version
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-MIT License
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Development
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+```bash
+# Build the library
+ng build @kivesh-virasamy/formio-toolkit
 
-### Development server
+# Run tests
+ng test @kivesh-virasamy/formio-toolkit
+```
 
-1. Clone the repository
-2. Run `npm install`
-3. Run `ng build formio-toolkit` to build the library
-4. Run `ng serve` for a dev server
+## License
 
-### Build
+MIT 
 
-Run `ng build formio-toolkit` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Support
+
+For issues and feature requests, please use the [GitHub issue tracker](https://github.com/kivesh-cloud/formio-toolkit/issues).
