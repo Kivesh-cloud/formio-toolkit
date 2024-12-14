@@ -1,4 +1,4 @@
-# @kivesh-cloud/formio-toolkit
+# @kivesh-virasamy/formio-toolkit
 
 A comprehensive Angular toolkit for Form.io that provides enhanced form components, utilities, and customization options. This toolkit extends Form.io's capabilities with additional features and improved component handling.
 
@@ -34,10 +34,10 @@ A comprehensive Angular toolkit for Form.io that provides enhanced form componen
 
 ```bash
 # Using npm
-npm install @kivesh-cloud/formio-toolkit
+npm install @kivesh-virasamy/formio-toolkit
 
 # Using pnpm
-pnpm add @kivesh-cloud/formio-toolkit
+pnpm add @kivesh-virasamy/formio-toolkit
 ```
 
 ## Quick Start
@@ -45,7 +45,7 @@ pnpm add @kivesh-cloud/formio-toolkit
 1. Import the module in your `app.module.ts`:
 
 ```typescript
-import { FormioToolkitModule } from '@kivesh-cloud/formio-toolkit';
+import { FormioToolkitModule } from '@kivesh-virasamy/formio-toolkit';
 
 @NgModule({
   imports: [
@@ -61,7 +61,7 @@ export class AppModule { }
 
 ```typescript
 import { Component } from '@angular/core';
-import { ComponentRegistryService } from '@kivesh-cloud/formio-toolkit';
+import { ComponentRegistryService } from '@kivesh-virasamy/formio-toolkit';
 
 @Component({
   selector: 'app-root',
@@ -105,7 +105,7 @@ export class AppComponent {
 You can customize components using the ComponentCustomizationService:
 
 ```typescript
-import { ComponentCustomizationService } from '@kivesh-cloud/formio-toolkit';
+import { ComponentCustomizationService } from '@kivesh-virasamy/formio-toolkit';
 
 @Component({
   // ...
@@ -135,10 +135,10 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ```bash
 # Build the library
-ng build @kivesh-cloud/formio-toolkit
+ng build @kivesh-virasamy/formio-toolkit
 
 # Run tests
-ng test @kivesh-cloud/formio-toolkit
+ng test @kivesh-virasamy/formio-toolkit
 ```
 
 ## License
