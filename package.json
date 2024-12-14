@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@formio/angular": "^8.0.0",
+    "@formio/deprecated-types": "^0.1.0",
+    "@formio/js": "^5.0.0",
     "formiojs": "^4.21.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

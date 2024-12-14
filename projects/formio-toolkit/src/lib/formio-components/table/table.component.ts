@@ -120,7 +120,6 @@ export const tableComponent = {
   numRows: 3,
   numCols: 3,
   cloneRows: false,
-  layoutFixed: false,
   tableView: false,
   modalEdit: false,
   defaultValue: [],
@@ -130,9 +129,9 @@ export const tableComponent = {
   cellAlignment: 'left',
   addAnotherPosition: 'bottom',
   defaultOpen: false,
-  layoutFixed: false,
   enableRowGroups: false,
   initEmpty: false,
   hideAddButton: false,
-  manageColumns: false
+  manageColumns: false,
+  layoutFixed: false
 };

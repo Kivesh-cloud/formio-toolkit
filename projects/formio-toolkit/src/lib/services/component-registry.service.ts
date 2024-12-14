@@ -30,7 +30,10 @@ import {
   rowComponent,
   wellComponent,
   tagsComponent,
-  wizardComponent
+  wizardComponent,
+  passwordComponent,
+  selectComponent,
+  submitComponent
 } from '../formio-components';
 
 export interface FormioCustomComponentInfo {
@@ -230,7 +233,10 @@ export class ComponentRegistryService {
       rowComponent,
       wellComponent,
       tagsComponent,
-      wizardComponent
+      wizardComponent,
+      passwordComponent,
+      selectComponent,
+      submitComponent
     ];
     componentsList.forEach(component => {
       this.registerComponent(component.type, component);
