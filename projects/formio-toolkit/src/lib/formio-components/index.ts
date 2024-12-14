@@ -19,6 +19,7 @@ export * from './resource/resource.component';
 export * from './data-source/data-source.component';
 export * from './data-grid/data-grid.component';
 export * from './survey/survey.component';
+export * from './submit/submit.component';
 export * from './signature/signature.component';
 export * from './content/content.component';
 export * from './image/image.component';

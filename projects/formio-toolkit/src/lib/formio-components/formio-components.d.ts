@@ -30,3 +30,6 @@ export const passwordComponent: any;
 export const selectComponent: any;
 export const tagsComponent: any;
 export const wizardComponent: any;
+export const tabsComponent: any;
+export const submitComponent: any;
+
